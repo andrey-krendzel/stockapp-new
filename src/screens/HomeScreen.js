@@ -10,28 +10,22 @@ import Constants from "expo-constants";
 import React, { useState } from "react";
 
 const { manifest } = Constants;
-import styles from "./HomeScreen.component.style.js";
-import ETFItem from "./HomeScreen.component.Item.js";
+import styles from "../styles/HomeScreen.style.js";
+import ETFItem from "../components/HomeScreen.ETFItem.js";
 
 export default function HomeScreen(props) {
   const [ETFList, setETFList] = useState([]);
   const [selectedTicker, setSelectedTicker] = useState(null);
-  const [limit, setLimit] = useState("10");
+  const [limit, setLimit] = useState("100");
   const [search, setSearch] = useState();
+  const [filter, setFilter] = useState();
 
   //Load stocks list
 
   function forceLoad() {
-    //API call control. Don't use &search parameter if there is nothing in the search input/state. That causes too many API calls which locks the service.
-    let searchQuery = "";
-    if (search != undefined) {
-      searchQuery = "&search=" + search;
-      setLimit("1000");
-    }
 
     fetch(
       "https://api.polygon.io/v3/reference/tickers?type=ETF&market=stocks&active=true&sort=ticker&order=asc" +
-        searchQuery +
         "&limit=" +
         limit +
         "&apiKey=XAzPFN5qJchHEfIgfGtaiQ8VQzFjqyIp"
@@ -43,6 +37,19 @@ export default function HomeScreen(props) {
       .catch((error) => {
       });
   }
+
+
+    //Filter it in case filter input is being used
+
+    let filteredETFList = "";
+
+    if (filter != undefined) {
+      filteredETFList = ETFList.filter(
+        (value) => value.ticker == filter
+      );
+    } else {
+      filteredETFList = ETFList;
+    }
 
   //Flatlist stuff
 
@@ -69,14 +76,14 @@ export default function HomeScreen(props) {
       <View style={styles.paddingSidesTop}>
         <Text>How many to load: </Text>
         <TextInput style={styles.input} onChangeText={setLimit} value={limit} />
-        <Text>Search name or ticker: </Text>
+        <Text>Filter by ticker: </Text>
         <TextInput
           style={styles.input}
-          onChangeText={setSearch}
-          value={search}
+          onChangeText={setFilter}
+          value={filter}
         />
         <Text style={styles.paddingBottom20}>
-          If you cannot find the stock by sticker, try increasing the amount of
+          If you cannot find the stock by ticker, try increasing the amount of
           stocks loaded.{" "}
         </Text>
       </View>
@@ -88,7 +95,7 @@ export default function HomeScreen(props) {
         accessibilityLabel="Force load"
       />
 
-      <FlatList data={ETFList} renderItem={renderItem} />
+      <FlatList data={filteredETFList} renderItem={renderItem} />
     </SafeAreaView>
   );
 }

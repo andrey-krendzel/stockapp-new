@@ -1,8 +1,8 @@
 import { Text, TouchableOpacity, Pressable } from "react-native";
 import Constants from "expo-constants";
 import React, { useState } from "react";
-import styles from "./HomeScreen.component.style.js";
-import ViewDetailsModal from "./HomeScreen.component.ViewDetailsModal.js";
+import styles from "../styles/HomeScreen.style.js";
+import ViewDetailsModal from "./HomeScreen.ViewDetailsModal.js";
 const { manifest } = Constants;
 
 const ETFItem = ({ item, onPress, backgroundColor, textColor }) => {
@@ -38,6 +38,8 @@ const ETFItem = ({ item, onPress, backgroundColor, textColor }) => {
           setDetailsVisible({ visible: false });
         }}
         loadDetails={() => loadDetails(item.ticker)}
+        setDateInput={setDateInput}
+        dateInput={dateInput}
         ticker={item.ticker}
       />
       <TouchableOpacity

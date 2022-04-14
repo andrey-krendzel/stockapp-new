@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 import React, { useState, useRef } from "react";
-import styles from "./CryptoScreen.component.style.js";
-import CryptoItem from "./CryptoScreen.component.Item.js";
+import styles from "../styles/CryptoScreen.style.js";
+import CryptoItem from "../components/CryptoScreen.CryptoItem.js";
 
 const { manifest } = Constants;
 //const uri = `http://${manifest.debuggerHost.split(":").shift()}:3001`;
@@ -40,6 +40,7 @@ export default function CryptoScreen() {
       .then((response) => response.json())
       .then((data) => {
         setCryptocurrencyList(data.data);
+      
       })
       .catch((error) => console.error(error));
   }
@@ -95,9 +96,6 @@ export default function CryptoScreen() {
         textColor={{ color }}
         detailsVisible={detailsVisible}
         onPress={() => setSelectedSymbol(item.symbol)}
-        onPressProp={() =>
-          setDetailsVisible({ visible: !detailsVisible.visible })
-        }
         onPressAction={() => setDetailsVisible({ visible: true })}
       />
     );

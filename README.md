@@ -19,6 +19,6 @@
 
 https://expo.dev/@xfire/mobileapp
 
-## Video V1 (buggy)
+## Video
 
-https://streamable.com/r61kn0
+https://streamable.com/pnf690

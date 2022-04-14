@@ -2,19 +2,20 @@ import { View, Text, TextInput, Modal, Pressable } from "react-native";
 import Constants from "expo-constants";
 import React, { useState } from "react";
 import { Formik } from "formik";
-import styles from "./HomeScreen.component.style.js";
+import styles from "../styles/HomeScreen.style.js";
 
 const { manifest } = Constants;
 
 const ViewDetailsModal = ({
-  ticker,
   detailsVisible,
   errorMessageDetails,
   tickerDetails,
   detailsChangeFunction,
   loadDetails,
+  setDateInput,
+  dateInput
 }) => {
-  const [dateInput, setDateInput] = useState("2022-03-08");
+  
 
   return (
     <Modal
