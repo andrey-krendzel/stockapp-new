@@ -14,6 +14,7 @@
 - Styled: https://reactnativeexample.com/styled-components-for-react-native-the-way-they-should-have-been/
   Also this guide https://rossbulat.medium.com/how-to-use-styled-components-in-react-native-3543c97cb485
 - Redux, for theming. Failed.
+- React-stockcharts, Chart, react-native-stockchart
 
 ## Demo
 

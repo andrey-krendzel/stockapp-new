@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import HomeScreen from "./src/screens/HomeScreen";
+import ETFScreen from "./src/screens/ETFScreen";
 import SettingScreen from "./src/screens/SettingScreen";
 import CryptoScreen from "./src/screens/CryptoScreen";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -18,7 +18,7 @@ export default function App() {
         <Tab.Navigator>
           <Tab.Screen
             name="ETFs"
-            component={HomeScreen}
+            component={ETFScreen}
             options={{
               tabBarLabel: "ETFs",
               tabBarIcon: ({ color }) => (

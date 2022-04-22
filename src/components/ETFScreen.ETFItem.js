@@ -2,7 +2,7 @@ import { Text, TouchableOpacity, Pressable } from "react-native";
 import Constants from "expo-constants";
 import React, { useState } from "react";
 import styles from "../styles/HomeScreen.style.js";
-import ViewDetailsModal from "./HomeScreen.ViewDetailsModal.js";
+import ViewDetailsModal from "./ETFScreen.ViewDetailsModal.js";
 const { manifest } = Constants;
 
 const ETFItem = ({ item, onPress, backgroundColor, textColor }) => {

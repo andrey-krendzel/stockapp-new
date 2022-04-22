@@ -11,7 +11,7 @@ import React, { useState } from "react";
 
 const { manifest } = Constants;
 import styles from "../styles/HomeScreen.style.js";
-import ETFItem from "../components/HomeScreen.ETFItem.js";
+import ETFItem from "../components/ETFScreen.ETFItem.js";
 
 export default function HomeScreen(props) {
   const [ETFList, setETFList] = useState([]);
