@@ -22,4 +22,5 @@ https://expo.dev/@xfire/mobileapp
 
 ## Video
 
-https://streamable.com/pnf690
+Application: https://streamable.com/pnf690
+Code: https://streamable.com/4l7zyq
